@@ -1,0 +1,98 @@
+GUI-Tkinter
+-Tkinter is a in built python library
+-we can use it py importing it
+=import tkinter
+
+#Tk()
+-it is used to create an window object
+-window object is where user interact
+Syntax:
+window=tkinter.Tk()
+
+#mainloop()
+-after creating window mainloop() will present windows continuously
+Syntax:
+window.mainloop()
+
+#title()
+-to change the title or name of window using window object
+syntax:window.title("name of title")
+
+#Label()
+-to add text inside the window
+syntax:
+label=tk.Label(text="hello")
+
+#pack()
+-using pack() we can bring text or button on window inside pack() we can change the side of text left,right,button,expand=True for center
+ pack(side=any side)
+-label.pack()
+
+*using label and pack() method the window automatically take the size of window as required but to keep minimum default size
+ we use minsize()
+
+#minsize()
+syntax:window.minsize(width=,height=)
+
+
+*to change the font of text in window we can change it in Label() method or using font class
+syntax:label=tk.Label(text="hello",font=("Times New Roman",20,"bold")
+
+*font.Font()
+-first import tkinter.font as font
+syntax:
+custom_font=tk.font.Font(family="time new roman",size=13,slant="italic")
+-we can now use custom_font in label()
+
+!!above codes are on p1.py
+
+#after creation label we can change the text
+1.label["text"]="have a nice day"
+2.label.config(text="have a nice day")
+
+*in label.config we can change any property of label
+
+#Button
+-a clickable button
+-to make an use of button use command=function name
+
+-def butt():
+  label.config(text="thank you")
+
+syntax:
+button=tk.Button(text="click here",command=butt)
+button.pack()
+
+!!above code are on p2.py
+
+#Entry()
+-user enters an text in window or take user input
+syntax:
+user_input=tk.Entry() *inside entry we can change the width and height or set it
+
+*to make user_input mask or password or to hide
+syntax:
+user_input=tk.Entry(show="*")
+
+*to make used of or fetch user input
+#get()
+syntax:
+user_input.get()
+
+!!above code are at P3.py
+
+#ttk
+-import it first:form tkinter import ttk
+-improve module or Tk()/better version
+
+#quitting the window
+-syntax:window.destroy
+
+!!! above code in P4.py
+
+#Frames
+
+
+
+
+
