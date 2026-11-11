@@ -68,7 +68,8 @@ button.pack()
 #Entry()
 -user enters an text in window or take user input
 syntax:
-user_input=tk.Entry() *inside entry we can change the width and height or set it
+user_input=tk.Entry() *inside entry we can change the width  or set it
+*to increase vertically the entry ipady in pack(ipady=4,pady=4)
 
 *to make user_input mask or password or to hide
 syntax:
@@ -91,7 +92,145 @@ user_input.get()
 !!! above code in P4.py
 
 #Frames
+*to add background colour inside label add bg="red"
+example:
+label1=tk.Label(text="Hello world!",bg="light blue")
+label1.pack()
 
+*to fill all the side use fill="y"/fill="x" under pack();x=horizontal,y=vertical,fill=both or expand both x and y
+example:
+label1=tk.Label(text="Hello world!",bg="light blue")
+label1.pack(fill='y')
+
+#frame()
+-to create separate window inside main window
+example:
+#Frame()
+my_frame=ttk.Frame()
+my_frame.pack(side="left",fill="both",expand=True)
+
+*to make components on frames
+label1=tk.Label(my_frame,text="Hello world!",bg="black")
+label1.pack(side="left",expand=True,fill="both")
+
+!!above code on P5.py
+
+*to have multiline text in window
+#Text()
+syntax:
+text=tk.Text(height=5,width=25)
+text.pack()
+
+*to make cursor blink in the text box
+#focus()
+syntax:
+text.focus()
+
+*to have an default text or comment
+#insert()
+syntax:
+text.insert("1.0","Enter your comments")
+
+*to disable any widget or components of window
+#["state"]="disabled"
+eg:
+text["state"]="disabled"
+
+*to enable
+text["state"]="normal"
+
+*to fetch data or text from text bot
+#get(index)
+syntax:
+text.get("1.0","end")
+
+*to separate the widgets or gap between them
+#Separator()
+syntax:
+sep=ttk.separator(orient="horizontal/vertical")
+sep.pack(fill="x/y")
+
+*to provide space in pack() use padding
+eg:pack(pady=3/padx=23)
+
+!!!above code in P6.py
+
+#Checkbutton
+syntax:
+check_btn=ttk.Checkbutton(text="Agree with the terms and condition")
+check_btn.pack()
+example:
+check_option=tk.IntVar()
+
+def check_opt():
+    print(check_option.get())
+
+check_btn=ttk.Checkbutton(text="Agree with terms and condition",variable=check_option,command=check_opt)
+check_btn.pack(side="bottom")
+
+
+#Radiobutton widget
+syntax:
+radio_value=tk.StringVar()
+
+def get_radio():
+    print(radio_value.get())
+
+option_1=ttk.Radiobutton(text="Male",variable=radio_value,value="male",command=get_radio)
+option_2=ttk.Radiobutton(text="Female",variable=radio_value,value="Female",command=get_radio)
+
+option_1.pack()
+option_2.pack()
+
+!!!above code in P7.py
+
+#Combo box /dropdown
+syntax:
+selected_country=tk.StringVar()
+countries=ttk.Combobox(textvariable=selected_country,values=("India","Canada","Australia","Sweden","US"))
+countries["state"]="readonly"
+countries.pack()
+
+def display_country(event):
+    country_label=ttk.Label(text=f"{selected_country.get()}")
+    country_label.pack()
+
+countries.bind("<<ComboboxSelected>>",display_country)
+
+
+#ListBox
+syntax:
+food_items = ("Pizza", "Burger", "Garlic bread", "Nachos", "Salad")
+fav_food = tk.StringVar(value=food_items)
+
+food_list = tk.Listbox(window, listvariable=fav_food, height=5, selectmode="extended")
+food_list.pack(pady=8)
+
+def get_fav_food(event):
+    food_indices = food_list.curselection()
+    print("--- Current Selection ---")
+    for i in food_indices:
+        print(food_list.get(i))
+
+food_list.bind("<ButtonRelease-1>", get_fav_food)
+
+#Spinbox
+-used to increased or decreased the integer
+syntax:
+counter=tk.IntVar(value=10)
+
+def get_spin_box_value():
+    print(f"Current spinbox value:{spin_box.get()}")
+
+spin_box=ttk.Spinbox(from_=2,to=20,textvariable=counter,wrap=True,command=get_spin_box_value)
+spin_box.pack(pady=8)
+
+print(f"initial value spinbox:{spin_box.get()}")
+
+!!above code in P8.py
+
+
+*in place of pack() we can use place(x=20,y=20) in which they are with x and y axis
 
 
 
